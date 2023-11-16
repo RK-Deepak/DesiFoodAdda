@@ -1,0 +1,39 @@
+{
+  "name": "desifoodadda",
+  "version": "1.0.0",
+  "description": "This is food ordereing demo",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RK-Deepak/DesiFoodAdda.git"
+  },
+  "keywords": [
+    "food",
+    "desi",
+    "tasty",
+    "majedaar"
+  ],
+  "author": "RK_Deepak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RK-Deepak/DesiFoodAdda/issues"
+  },
+  "homepage": "https://github.com/RK-Deepak/DesiFoodAdda#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "postcss": "^8.4.31",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.5"
+  },
+  "dependencies": {
+    "icons": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.18.0"
+  }
+}
