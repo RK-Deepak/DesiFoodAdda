@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.restro_trans 
+{
+          transition: all .4s linear;;
+}
