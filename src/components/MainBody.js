@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import mainimage from "../assets/desi.jpg"
 import downloadapp from "../assets/downloadApp.png"
@@ -11,8 +11,11 @@ import in_2 from "../assets/in_2.jpg"
 import in_3 from "../assets/in_3.jpg"
 import in_4 from "../assets/in_4.jpg"
 
+
 const MainBody=()=>
 {
+
+ 
   return (
     <div>
           <div className='flex justify-evenly  items-center max-w-[95vw] mx-auto p-3 bg-white font-serif flex-wrap  '>

@@ -4,12 +4,15 @@ import { FaHamburger } from "react-icons/fa"
 import { useEffect, useState } from "react";
 import { FaPersonWalkingArrowRight } from "react-icons/fa6";
 import { GiStrikingArrows } from "react-icons/gi";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const Header=()=>
 
 {
 
           const [hamburger,sethamburger]=useState(true);
+
+          const {onlinestatus}=useOnlineStatus();
 
           function menubarfn()
           {
@@ -36,12 +39,16 @@ const Header=()=>
                  }, []);
 
                
+
+               
   return (
-          <div className="flex justify-between items-center px-9 border-b-2 py-1  border-slate-600   w-[100%] m-auto bg-white sticky top-0 ">
+          <div className="flex justify-between items-center px-9 border-b-2 py-1  border-slate-600   w-[100%] m-auto bg-white sticky top-0 relative">
                     <div>
                      <img src={logo} alt="logo" className="h-[80px] "/>
                     </div>
+                    <div className="flex items-baseline  justify-center gap-1 fixed top-[6rem] right-[30%] left-[31%]"><span className="font-bold text-sm sm:text-xl ">Online Status:</span><span>{onlinestatus?"💚":"🔴"}</span></div>
                     <div  id="list relative ">
+                    
                      <ul className={`gap-3 text-lg font-bold flex-col  ${hamburger?'hidden':'flex absolute  max-w-[600px] right-[1.25rem] top-[70px] p-5 '} sm:flex-row sm:flex sm:bg-transparent sm:border-none sm:left-0 sm:top-0 sm:p-0 sm:static`} >
                      <NavLink to="/"> <li className={`hover:text-red-400 p-[6px] rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>Home</li></NavLink>
                             <NavLink to="/restro" > <li className={`hover:text-red-400  p-[6px]  rounded-md  bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>FoodAdda</li></NavLink>
