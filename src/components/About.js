@@ -18,7 +18,7 @@ const About=()=>
                     </div>
                     </div>
                     <div className='border-2 border-violet-500 rounded-full p-2 bg-green-300'>
-                         <img src={minephoto} alt='mine' className='max-w-[200px] sm:max-w-[300px] rounded-full'/>
+                         <img src={minephoto} alt='mine' className='max-w-[200px] sm:max-w-[300px] rounded-full' loading='eager'/>
                     </div>
           </div>
     )

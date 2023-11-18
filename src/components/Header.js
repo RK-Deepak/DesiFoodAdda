@@ -44,7 +44,7 @@ const Header=()=>
                     <div  id="list relative ">
                      <ul className={`gap-3 text-lg font-bold flex-col  ${hamburger?'hidden':'flex absolute  max-w-[600px] right-[1.25rem] top-[70px] p-5 '} sm:flex-row sm:flex sm:bg-transparent sm:border-none sm:left-0 sm:top-0 sm:p-0 sm:static`} >
                      <NavLink to="/"> <li className={`hover:text-red-400 p-[6px] rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>Home</li></NavLink>
-                              <li className={`hover:text-red-400  p-[6px]  rounded-md  bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>FoodAdda</li>
+                            <NavLink to="/restro" > <li className={`hover:text-red-400  p-[6px]  rounded-md  bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>FoodAdda</li></NavLink>
                              <NavLink to="/about"> <li className={`hover:text-red-400  p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>About Me</li></NavLink>
                               <li className={`hover:text-red-400 p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>Cart</li>
                      </ul>

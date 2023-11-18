@@ -7,6 +7,7 @@ import  Footer  from './components/Footer';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import About from './components/About';
 import Error from './components/Error';
+import RestroList from './components/RestroList';
 
 
 
@@ -34,6 +35,10 @@ const approuter=createBrowserRouter([
          {
             path:"/about",
             element:<About/>
+         },
+         {
+            path:"/restro",
+            element:<RestroList/>
          }
 
       ],

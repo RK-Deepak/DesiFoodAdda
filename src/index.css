@@ -6,3 +6,31 @@
 {
           transition: all .4s linear;;
 }
+.blink 
+{
+          
+          animation: blinkit 2s linear infinite;
+}
+@keyframes blinkit 
+{
+          0%
+          {
+                    opacity: 1;
+          }
+          25%
+          {
+                    opacity: .75;
+          }
+          50%
+          {
+                    opacity: .5;
+          }
+          75%
+          {
+                    opacity: .75;
+          }
+          100%
+          {
+                    opacity: 1;
+          }
+}

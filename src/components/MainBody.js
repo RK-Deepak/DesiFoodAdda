@@ -42,7 +42,7 @@ const MainBody=()=>
                     </div>
                     <div className=''> 
         
-                               <img src={mainimage} alt='mainimage' className='border border-white rounded-full max-w-[500px] w-[100%] ' loading='lazy'/> 
+                               <img src={mainimage} alt='mainimage' className='border border-white rounded-full max-w-[500px] w-[100%] ' loading='eager'/> 
                     </div>
           </div>
           <div className='w-[85vw] h-[280px] bg-green-300 mx-auto my-6 flex justify-evenly items-center p-4 rounded-md'>
