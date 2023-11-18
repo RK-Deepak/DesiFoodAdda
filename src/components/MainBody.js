@@ -11,14 +11,16 @@ import in_2 from "../assets/in_2.jpg"
 import in_3 from "../assets/in_3.jpg"
 import in_4 from "../assets/in_4.jpg"
 
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const MainBody=()=>
 {
-
+  const {onlinestatus}=useOnlineStatus();
  
   return (
     <div>
           <div className='flex justify-evenly  items-center max-w-[95vw] mx-auto p-3 bg-white font-serif flex-wrap  '>
+          <div className="flex  items-center justify-center gap-1 fixed top-[6rem] right-[30%] left-[31%] z-0"><span className="font-bold text-xs sm:text-xl ">Online Status:</span><span>{onlinestatus?"💚":"🔴"}</span></div>
                     <div className='p-5 flex flex-col gap-1'>
                          <div className='flex flex-col justify-evenly min-h-[300px]'>
                            <h1 className='text-2xl md:text-4xl font-bold font-serif text-green-700 ' >Swaad Woh ,<br></br><span className='text-red-800'> Jo Aapko Yaad Rahe 😜</span></h1>
