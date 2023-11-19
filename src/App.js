@@ -8,6 +8,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import About from './components/About';
 import Error from './components/Error';
 import RestroList from './components/RestroList';
+import RestroMenu from './components/RestroMenu';
 
 
 
@@ -39,7 +40,12 @@ const approuter=createBrowserRouter([
          {
             path:"/restro",
             element:<RestroList/>
+         },
+         {
+            path:"/menu/:resId",
+            element:<RestroMenu/>
          }
+        
 
       ],
       errorElement:<Error/>

@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import React from 'react'
-import RestroCard from "./RestroCard";
+import RestroCard, { PromotedRestroLabelled } from "./RestroCard";
 import Shimmer from "./Shimmer";
 import useRestrolist from "../hooks/useRestrolist";
+import { NavLink } from "react-router-dom";
 
 
 
 const RestroList=()=>
 {
-        const {buttonsearch,searchrestro,restrolist,searchtext,fetchrestro}=useRestrolist()
+        const {buttonsearch,searchrestro,restrolist,searchtext,fetchrestro}=useRestrolist();
+
+        const PromtedRestro=PromotedRestroLabelled(RestroCard);
+       
 
           if(restrolist.length===0)
           {
@@ -35,10 +39,14 @@ const RestroList=()=>
                      </div>
                      </div>
                     <div className="flex justify-evenly gap-3 flex-wrap p-2">
-                            {restrolist.map((restro)=>
                             {
-                              return <RestroCard key={restro?.info?.id} restrodata={restro?.info}/>
-                            })}
+                            restrolist.map((restro)=>
+                            
+                    (
+                    
+                            <NavLink to={"/menu/"+ restro?.info?.id} key={restro?.info?.id}>{restro?.info?.promoted?<PromtedRestro restrodata={restro?.info}/>:<RestroCard  restrodata={restro?.info}/>}</NavLink>
+                              
+                            ))}
                     </div>
                     </div>
           )

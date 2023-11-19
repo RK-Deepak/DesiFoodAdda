@@ -6,6 +6,7 @@ const Error=()=>
        const err=useRouteError();
      
        const {statusText,error}=err;
+       
        return (
           <div className='flex flex-col gap-1 w-[100%] h-screen justify-center items-center'>
                     <h1 className='text-xl sm:text-4xl font-mono font-bold text-red-800'>{statusText}</h1>

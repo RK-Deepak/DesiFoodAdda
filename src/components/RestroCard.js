@@ -1,17 +1,18 @@
 import React from 'react'
+import { Restro_image } from '../utils/constant';
 
 const RestroCard=(props)=>
 
 {
-           console.log(props?.restrodata)
+         
           const {avgRating,areaName,cloudinaryImageId,name,locality,sla}=props?.restrodata ?? {};
         
           
  return (
 
-          <div className='flex flex-col border  max-w-[250px] max-h-[300px] p-2'>
+          <div className='flex flex-col border  max-w-[250px] max-h-[300px] p-2 relative '>
                  <div>
-                    <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+cloudinaryImageId} alt='restroimage' className='max-w-[200px] max-h-[130px] mx-auto rounded-md' />
+                    <img src={Restro_image+cloudinaryImageId} alt='restroimage' className='max-w-[200px] max-h-[130px] mx-auto rounded-md' />
                  </div>
                  <div className='flex flex-col gap-1'>
                     <h1 className='font-bold text-md text-green-500'>{name}</h1>
@@ -22,5 +23,22 @@ const RestroCard=(props)=>
                  </div>
           </div>
  )
-}  
+} 
+  
+export const PromotedRestroLabelled=(RestroCard)=>
+{
+
+          return (props)=>
+          (
+                     ( 
+                     <div className='relative'>
+                              <RestroCard {...props}/>
+                              <div className='absolute top-0 left-0 bg-black text-white px-2 py-1'>
+                                        <label className=' '>Promoted</label>
+                              </div>
+                    </div>
+                    )
+          )
+}
+
 export default RestroCard;

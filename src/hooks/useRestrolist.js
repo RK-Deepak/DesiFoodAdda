@@ -11,12 +11,13 @@ const useRestrolist=()=>
          const fetchrestro = async (rating=null,name="")=>
           {
                     const dataobj=await fetch(Restro_api);
+                   
 
                     const data=await dataobj.json();
                   
                     const restroarray= data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                     
-                    console.log(restroarray);
+                   
 
                   if(name!=="")
                   {
