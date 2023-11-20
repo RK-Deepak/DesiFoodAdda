@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import RestroInfo from "./RestroInfo";
+import MenuAcordium from "./MenuAcordium";
 
 const RestroMenu=()=>
 {
@@ -8,8 +9,10 @@ const RestroMenu=()=>
        
         
    
-          const [restromenu,setrestromenu]=useState([]);
+          const [category,setcategory]=useState([]);
           const [restrodetail,setrestrodetail]=useState([]);
+
+          const [showindex,setshowindex]=useState(null);
 
 
           const fetchrestromenu=async ()=>
@@ -27,7 +30,16 @@ const RestroMenu=()=>
                console.log(data);
              
                setrestrodetail(data?.data?.cards[0]?.card?.card?.info);
+
+               let intitalCategory=data?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+
+              
+               const finalcategory=intitalCategory.filter((category)=>category?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+               console.log("restro",finalcategory)
+               setcategory(finalcategory);
+
                console.log(data?.data?.cards[0]?.card?.card?.info);
+            
           }
 
           useEffect(()=>
@@ -35,8 +47,10 @@ const RestroMenu=()=>
                 fetchrestromenu();
           },[])
           return (
-                     <div className="p-4">
+                     <div className="p-4 bg_image">
                           <RestroInfo restrodetail={restrodetail}/>
+                          {category.map((variant,index)=>
+                          <MenuAcordium foodtype={variant} showitems={index===showindex} setshowindex={()=>setshowindex(index)}/>)}
                     </div>
           )
 }

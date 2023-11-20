@@ -2,12 +2,13 @@ import React from 'react'
 import { Restro_image } from '../utils/constant';
 import RestroMenuShimmer from './RestroMenuShimmer';
 import logomain from "../assets/logomain.png"
+import { FaClock, FaUserClock } from 'react-icons/fa';
 function RestroInfo(props) {
 
           console.log(props);
 
-          const {name,avgRating,city,areaName,costForTwoMessage,cuisines,totalRatingsString,cloudinaryImageId
-          }=props.restrodetail;
+          const {name,avgRating,city,areaName,costForTwoMessage,cuisines,totalRatingsString,cloudinaryImageId,
+          sla}=props.restrodetail;
 
 
           
@@ -20,9 +21,13 @@ function RestroInfo(props) {
           <p className='font-semibold text-sm sm:text-md text-slate-400'>{city},{areaName}</p>
           </div>
           <div className='flex gap-1 flex-col items-center sm:items-start' >
-           <p className='font-bold text-slate-800 text-sm'>{costForTwoMessage}</p>
+            <div className='flex  gap-1 items-center justify-center'>
+              <p className='flex gap-1 items-center font-bold text-slate-800 text-xs sm:text-sm'><FaUserClock/>{sla?.deliveryTime} min,</p>
+           <p className='font-bold text-slate-800 text-xs sm:text-sm'>{costForTwoMessage}</p>
+           </div>
            <p className='font-bold text-slate-800 text-sm'>{cuisines?cuisines.join(','):"Indian"}</p>
            <p className='font-semibold text-green-500 underline'>{avgRating?"Ratings:-":""}{avgRating}</p>
+          
           </div>
           </div>
           <div className='flex flex-col gap-1'>
