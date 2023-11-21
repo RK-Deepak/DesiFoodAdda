@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import { FaStar } from "react-icons/fa";
 import mainimage from "../assets/desi.jpg"
 import downloadapp from "../assets/downloadApp.png"
@@ -10,8 +10,10 @@ import in_1 from "../assets/in_1.jpg"
 import in_2 from "../assets/in_2.jpg"
 import in_3 from "../assets/in_3.jpg"
 import in_4 from "../assets/in_4.jpg"
+import logomain from "../assets/logomain.png"
 
 import useOnlineStatus from "../hooks/useOnlineStatus";
+import { NavLink } from 'react-router-dom';
 
 const MainBody=()=>
 {
@@ -28,7 +30,7 @@ const MainBody=()=>
                                Khana Woh hai jiske liye aap jeena chaho...<br></br>
                               <span className=' text-xl md:text-2xl font-bold text-green-700 underline'>Paise Aapke Swad Hamara</span>
                            </p>
-                           <button className=' px-4 py-3 md:px-8 md:py-4 bg-slate-600 w-fit rounded-full -my-2 text-white'>Order Now</button>
+                          <NavLink to="/restro"><button className=' px-4 py-3 md:px-8 md:py-4 bg-slate-600 w-fit rounded-full -my-2 text-white' >Order Now</button></NavLink>
                          </div>
                          <div className='flex flex-col gap-1'>
                            <div className='flex'>
@@ -62,7 +64,7 @@ const MainBody=()=>
           <div className='flex flex-col max-w-[95vw] my-4 mx-auto'>
             <div className='flex w-[90%] justify-between mx-auto my-2 p-3'>
           <h2 className='font-bold text-2xl underline '>Restraurants</h2>
-            <button className=' px-2 py-2 md:px-8  bg-slate-600 w-fit rounded-full md:py-3 text-white'>Show All</button>
+            <NavLink to="/restro"><button className=' px-2 py-2 md:px-8  bg-slate-600 w-fit rounded-full md:py-3 text-white'>Show All</button></NavLink>
             </div>
             <div className='flex justify-evenly flex-wrap gap-4 md:gap-2 '>
             <div className='flex justify-center items-center flex-col restro_trans hover:scale-110 hover:shadow-lg hover:shadow-slate-500 '>

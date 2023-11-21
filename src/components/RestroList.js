@@ -27,8 +27,8 @@ const RestroList=()=>
          
          
           return (
-                    <div className="my-4" >
-                              <div className="flex flex-col gap-1 justify-center w-full items-center  ">
+                    <div className="my-5" >
+                              <div className="flex flex-col gap-2 justify-center w-full items-center  ">
                      <div className="flex gap-1 flex-wrap  ">
                      <input type="text" value={searchtext} onChange={searchrestro} className="border-2 rounded-md border-slate-800 w-[70%] sm:w-[20rem] py-1 px-1"/>
                      <button className="py-1 px-3 bg-green-500 rounded-md text-white" onClick={buttonsearch}>Search</button>
@@ -38,7 +38,7 @@ const RestroList=()=>
                      <button className="py-1 px-3 bg-slate-500 rounded-md text-white" onClick={()=>fetchrestro()}>All Restro</button>
                      </div>
                      </div>
-                    <div className="flex justify-evenly gap-3 flex-wrap p-2">
+                    <div className="flex justify-around gap-5 flex-wrap p-2 my-3">
                             {
                             restrolist.map((restro)=>
                             

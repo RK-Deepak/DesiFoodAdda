@@ -4,6 +4,7 @@ import { FaHamburger } from "react-icons/fa"
 import { useEffect, useState } from "react";
 import { FaPersonWalkingArrowRight } from "react-icons/fa6";
 import { GiStrikingArrows } from "react-icons/gi";
+import { useSelector } from "react-redux";
 
 
 const Header=()=>
@@ -11,6 +12,8 @@ const Header=()=>
 {
 
           const [hamburger,sethamburger]=useState(true);
+
+          const cartitem=useSelector((state)=>state.cart.items);
 
           
 
@@ -32,10 +35,10 @@ const Header=()=>
                             
                  
                     // Cleanup function to remove the event listener when the component is unmounted
-                    return () => {
+                    return () => 
                               window.removeEventListener("resize", handleResize);
                            
-                            };   
+                              
                  }, []);
 
                
@@ -49,11 +52,11 @@ const Header=()=>
                    
                     <div  id="list relative ">
                     
-                     <ul className={`gap-3 text-lg font-bold flex-col  ${hamburger?'hidden':'flex absolute  max-w-[600px] right-[1.25rem] top-[70px] p-5 '} sm:flex-row sm:flex sm:bg-transparent sm:border-none sm:left-0 sm:top-0 sm:p-0 sm:static`} >
+                     <ul className={`gap-3 text-md sm:text-lg font-bold flex-col  ${hamburger?'hidden':'flex absolute  max-w-[600px] right-[1.25rem] top-[70px] p-5 '} sm:flex-row sm:flex sm:bg-transparent sm:border-none sm:left-0 sm:top-0 sm:p-0 sm:static`} >
                      <NavLink to="/"> <li className={`hover:text-red-400 p-[6px] rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>Home</li></NavLink>
                             <NavLink to="/restro" > <li className={`hover:text-red-400  p-[6px]  rounded-md  bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>FoodAdda</li></NavLink>
                              <NavLink to="/about"> <li className={`hover:text-red-400  p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>About Me</li></NavLink>
-                              <li className={`hover:text-red-400 p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>Cart</li>
+                             <NavLink to="/cart"> <li className={`hover:text-red-400 p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>Cart<span className="text-sm text-violet-600"> ({cartitem.length})</span></li></NavLink>
                      </ul>
                     </div>
                     <div className="flex justify-center items-center sm:hidden w-[40px] aspect-square bg-gray-400 rounded-full hover:bg-red-500 relative z-10" >

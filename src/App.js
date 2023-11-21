@@ -9,17 +9,28 @@ import About from './components/About';
 import Error from './components/Error';
 import RestroList from './components/RestroList';
 import RestroMenu from './components/RestroMenu';
+import { Provider } from 'react-redux';
+import AppStore from './utils/Redux/AppStore';
+import Cart from './components/Cart';
+import ScrollToTop from './components/ScrollToTop';
+import Formx from './components/Formx';
+//YEH AISE HE ARROR DIKHA RHA 
+
 
 
 
 export const App=()=>
 {
    return (
+           <Provider store={AppStore}>
+           
           <div className='app'>
+          <ScrollToTop></ScrollToTop>
           <Header/>
           <Outlet/>
           <Footer/>
           </div>
+          </Provider>
    )
 }
 
@@ -44,13 +55,22 @@ const approuter=createBrowserRouter([
          {
             path:"/menu/:resId",
             element:<RestroMenu/>
-         }
+         },
+         {
+            path:"/cart",
+            element:<Cart/>
+         },
         
 
       ],
       errorElement:<Error/>
      
-    }
+    },
+    {
+      path:"/formx",
+      element:<Formx/>
+   }
+  
       
 
 ])

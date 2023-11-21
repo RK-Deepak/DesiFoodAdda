@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import minephoto from "../assets/mine.jpeg"
+import logomain from "../assets/logomain.png"
 
 const About=()=>
 {
@@ -18,7 +19,7 @@ const About=()=>
                     </div>
                     </div>
                     <div className='border-2 border-violet-500 rounded-full p-2 bg-green-300'>
-                         <img src={minephoto} alt='mine' className='max-w-[200px] sm:max-w-[300px] rounded-full' loading='eager'/>
+                         <img src={minephoto || logomain} alt='mine' className='max-w-[200px] sm:max-w-[300px] rounded-full' loading='eager'/>
                     </div>
           </div>
     )
