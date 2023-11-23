@@ -14,23 +14,60 @@ import AppStore from './utils/Redux/AppStore';
 import Cart from './components/Cart';
 import ScrollToTop from './components/ScrollToTop';
 import Formx from './components/Formx';
-//YEH AISE HE ARROR DIKHA RHA 
+import pikathunder from "./assets/picka_thunder.gif"
+import { useState ,useEffect} from 'react';
+
 
 
 
 
 export const App=()=>
 {
+
+   const [loading,setloading]=useState(true);
+
+
+
+
+
+ 
+
+   useEffect(()=>
+   {
+ 
+     const cleartime=setTimeout(()=>
+     {
+       setloading(false);
+     
+ 
+     },3000)
+ 
+     return ()=>clearTimeout(cleartime);
+ 
+   },[]);
+
+
+   if(loading)
+   {
+          return(
+          <div className='flex justify-center items-center min-h-screen flex-col-reverse bg-green-600 gap-2'>
+           <img src={pikathunder} alt='' />
+           <p className='font-bold text-lg underline sm:text-3xl text-red-800 font-serif'>Welcome To DesiFoodAdda..</p>
+          </div>)
+   }
+
    return (
            <Provider store={AppStore}>
-           
+          
           <div className='app'>
           <ScrollToTop></ScrollToTop>
           <Header/>
           <Outlet/>
           <Footer/>
           </div>
+          
           </Provider>
+          
    )
 }
 

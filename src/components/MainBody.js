@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, { useEffect, useState }  from 'react'
 import { FaStar } from "react-icons/fa";
 import mainimage from "../assets/desi.jpg"
 import downloadapp from "../assets/downloadApp.png"
@@ -10,27 +10,35 @@ import in_1 from "../assets/in_1.jpg"
 import in_2 from "../assets/in_2.jpg"
 import in_3 from "../assets/in_3.jpg"
 import in_4 from "../assets/in_4.jpg"
-import logomain from "../assets/logomain.png"
+
 
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useContext } from 'react';
+
 
 const MainBody=()=>
 {
   const {onlinestatus}=useOnlineStatus();
+
+
+
+
+
  
   return (
     <div>
           <div className='flex justify-evenly  items-center max-w-[95vw] mx-auto p-3 bg-white font-serif flex-wrap  '>
           <div className="flex  items-center justify-center gap-1 fixed top-[6rem] right-[30%] left-[31%] z-0"><span className="font-bold text-xs sm:text-xl ">Online Status:</span><span>{onlinestatus?"💚":"🔴"}</span></div>
                     <div className='p-5 flex flex-col gap-1'>
-                         <div className='flex flex-col justify-evenly min-h-[300px]'>
+                         <div className='flex flex-col justify-evenly min-h-[300px] '>
                            <h1 className='text-2xl md:text-4xl font-bold font-serif text-green-700 ' >Swaad Woh ,<br></br><span className='text-red-800'> Jo Aapko Yaad Rahe 😜</span></h1>
                            <p className='text-slate-800 text-sm sm:text-lg'>Khana Woh nhi jo aap jeene ke liye khao,<br></br>
                                Khana Woh hai jiske liye aap jeena chaho...<br></br>
                               <span className=' text-xl md:text-2xl font-bold text-green-700 underline'>Paise Aapke Swad Hamara</span>
                            </p>
-                          <NavLink to="/restro"><button className=' px-4 py-3 md:px-8 md:py-4 bg-slate-600 w-fit rounded-full -my-2 text-white' >Order Now</button></NavLink>
+                          <NavLink to="/restro"><button className=' px-4 py-2 md:px-8 md:py-4 bg-slate-600 w-fit rounded-full  text-white text-md md:text-lg font-bold' >Order Now</button></NavLink>
                          </div>
                          <div className='flex flex-col gap-1'>
                            <div className='flex'>

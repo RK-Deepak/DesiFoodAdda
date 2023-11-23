@@ -4,6 +4,7 @@ import RestroCard, { PromotedRestroLabelled } from "./RestroCard";
 import Shimmer from "./Shimmer";
 import useRestrolist from "../hooks/useRestrolist";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 
 
@@ -24,6 +25,8 @@ const RestroList=()=>
                   )
                    
           }
+
+       
          
          
           return (

@@ -6,9 +6,13 @@ import { clearcart, removeitem } from "../utils/Redux/Slices/CartSlice";
 import logomain from "../assets/logomain.png";
 import pikaimage from "../assets/pika.gif" // Import the logomain image
 
+
 const Cart = () => {
   const cartdata = useSelector((store) => store.cart.items);
+ 
   const dispatch = useDispatch();
+
+
 
   const emptycart = () => {
     dispatch(clearcart());
@@ -20,8 +24,9 @@ const Cart = () => {
           dispatch(removeitem(id))
   }
   const netamount = cartdata.reduce((acc, itemCard) => {
-    return acc + itemCard?.card?.info?.price / 100;
+    return acc + (itemCard?.card?.info?.price / 100)*itemCard.quantity;
   }, 0);
+  console.log(cartdata);
 
   if (cartdata.length === 0) {
     return (
@@ -58,8 +63,12 @@ const Cart = () => {
                   <span className="text-red-500" onClick={()=>deleteitem(itemCard?.card?.info?.id)}>Remove-</span>
                 </div>
               </div>
+              <div className="py-1 px-2 rounded-md bg-black "><p className="text-bold text-white flex gap-1"><span>⚔️</span>{itemCard?.quantity}</p></div>
             </div>
+           
           ))}
+          
+         
         </div>
         <div className="w-full sm:w-[40%] flex flex-col gap-3">
           <h2 className="font-bold font-mono text-xl text-center underline">Order Summary</h2>
