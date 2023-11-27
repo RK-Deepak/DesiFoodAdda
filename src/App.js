@@ -21,6 +21,7 @@ import { useState ,useEffect} from 'react';
 
 
 
+
 export const App=()=>
 {
 
@@ -58,13 +59,14 @@ export const App=()=>
 
    return (
            <Provider store={AppStore}>
-          
+         
           <div className='app'>
           <ScrollToTop></ScrollToTop>
           <Header/>
           <Outlet/>
           <Footer/>
           </div>
+          
           
           </Provider>
           
@@ -97,20 +99,23 @@ const approuter=createBrowserRouter([
             path:"/cart",
             element:<Cart/>
          },
+         {
+            path:"/formx",
+            element:<Formx/>
+         }
         
 
       ],
       errorElement:<Error/>
      
     },
-    {
-      path:"/formx",
-      element:<Formx/>
-   }
+   
   
       
 
 ])
+
+
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
 
