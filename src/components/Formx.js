@@ -10,6 +10,7 @@ import { adduser } from "../utils/Redux/Slices/UserSlice";
 
 
 
+
 const Formx=()=>
 {
           const [formadata,setformdata]=useState({
@@ -29,8 +30,11 @@ const Formx=()=>
           const [errormessage,seterrormessage]=useState("");
 
           const navigate=useNavigate();
+          const dispatch=useDispatch();
 
-       const dispatch=useDispatch();
+          
+
+
 
           function changeHandler(e)
           {
@@ -69,6 +73,8 @@ function submithandler(e)
                   // Signed up 
                   const user = userCredential.user;
                   console.log("HI",user);
+                  navigate("/");
+                  
             
                 
                   // ...
@@ -82,15 +88,23 @@ function submithandler(e)
                   // ..
                 });
                  }
-                 else 
+                 else //login
                  {
                    signInWithEmailAndPassword(auth, formadata.email, formadata.password)
                    .then((userCredential) => {
                    // Signed in 
                    const user = userCredential.user;
                    console.log("signed in",user);
-                   dispatch(adduser({"email":user.email}));
-                   navigate("/");
+                   dispatch(adduser({"usertoken":user.getIdToken,"email":user.email}));
+                   navigate("/body")
+                  
+                   
+
+                 ;
+
+
+              
+                  
                   
                   
      
@@ -163,9 +177,9 @@ visibilepassword=()=>
 
           
           return (
-                    <div className="flex min-h-screen justify-center items-center flex-col gap-2 my-3 login_bg">
+                    <div className="flex min-h-screen justify-center items-center flex-col gap-2 my-3 bg_image">
                               
-                              <form onSubmit={submithandler} className="border-l-2 border-t-2 border-slate-600 shadow-md shadow-slate-600 min-h-[300px] max-w-[25rem] w-[90%] p-2 flex flex-col gap-3 bg-gradient-to-r from-violet-500 to-fuchsia-500" noValidate>
+                              <form onSubmit={submithandler} className="border-l-2 border-t-2 border-slate-600 shadow-md shadow-slate-600 min-h-[350px] max-w-[28rem] w-[90%] p-2 flex flex-col gap-3 bg-gradient-to-r from-slate-500 via-gray-500 to-white h-64" noValidate>
                               <h1 className="font-bold text-2xl text-center underline text-black">{isLogin?"Login":"Sign Up"}</h1>
                          
                              {!isLogin? <div className="flex flex-col gap-1">

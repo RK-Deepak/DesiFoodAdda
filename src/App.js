@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom/client'
 import Header from './components/Header';
 import MainBody from './components/MainBody';
 import  Footer  from './components/Footer';
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Outlet, RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom';
 import About from './components/About';
 import Error from './components/Error';
 import RestroList from './components/RestroList';
 import RestroMenu from './components/RestroMenu';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import AppStore from './utils/Redux/AppStore';
 import Cart from './components/Cart';
 import ScrollToTop from './components/ScrollToTop';
@@ -22,10 +22,13 @@ import { useState ,useEffect} from 'react';
 
 
 
+
 export const App=()=>
 {
 
    const [loading,setloading]=useState(true);
+
+   
 
 
 
@@ -41,17 +44,25 @@ export const App=()=>
        setloading(false);
      
  
-     },3000)
- 
+     },2000)
+
+     
+
+
      return ()=>clearTimeout(cleartime);
+
+   
+
  
    },[]);
+
+   
 
 
    if(loading)
    {
           return(
-          <div className='flex justify-center items-center min-h-screen flex-col-reverse bg-green-600 gap-2'>
+          <div className='flex justify-center items-center min-h-screen flex-col-reverse bg-gradient-to-r from-black via-gray-500 to-white h-64 gap-2 '>
            <img src={pikathunder} alt='' />
            <p className='font-bold text-lg underline sm:text-3xl text-red-800 font-serif'>Welcome To DesiFoodAdda..</p>
           </div>)
@@ -63,7 +74,7 @@ export const App=()=>
           <div className='app'>
           <ScrollToTop></ScrollToTop>
           <Header/>
-          <Outlet/>
+         <Outlet/>
           <Footer/>
           </div>
           
@@ -80,8 +91,12 @@ const approuter=createBrowserRouter([
       children:[
          {
             path:"/",
-            element:<MainBody/>,
+            element:<Formx/>,
 
+         },
+         {
+            path:"/body",
+            element:<MainBody/>
          },
          {
             path:"/about",
@@ -99,16 +114,14 @@ const approuter=createBrowserRouter([
             path:"/cart",
             element:<Cart/>
          },
-         {
-            path:"/formx",
-            element:<Formx/>
-         }
+         
         
 
       ],
       errorElement:<Error/>
      
     },
+   
    
   
       

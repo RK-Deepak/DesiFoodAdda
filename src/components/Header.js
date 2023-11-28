@@ -4,8 +4,14 @@ import { FaHamburger } from "react-icons/fa"
 import {  useContext, useEffect, useState } from "react";
 import { FaPersonWalkingArrowRight } from "react-icons/fa6";
 import { GiStrikingArrows } from "react-icons/gi";
-import { useDispatch, useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
 import { removeuser } from "../utils/Redux/Slices/UserSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
+
+
 
 
 
@@ -20,13 +26,15 @@ const Header=()=>
           const userinfo=useSelector((state)=>state.user);
 
           const [hamburger,sethamburger]=useState(true);
+         
+          const navigate=useNavigate();
 
           const dispatch=useDispatch();
+         
 
 
          
-
-          const navigate=useNavigate();
+        
 
           function menubarfn()
           {
@@ -42,11 +50,9 @@ const Header=()=>
                     };
                     
                      // Event listener for window resize
- window.addEventListener("resize", handleResize);
-                            
-                 
-                    // Cleanup function to remove the event listener when the component is unmounted
-                    return () => 
+                  window.addEventListener("resize", handleResize);
+
+                  return () => 
                               window.removeEventListener("resize", handleResize);
 
                            
@@ -59,7 +65,26 @@ const Header=()=>
                  {
                        return (acc+curr.quantity);
                  },0)
+
+                 function handlesignbutton()
+                 {
+
+               
+
+
+signOut(auth).then(() => {
+  // Sign-out successful.
+  dispatch(removeuser());
+  navigate("/");
+}).catch((error) => {
+  // An error happened.
+  navigate("/error");
+});
+                    
+                 }
               
+
+             
                
 
                
@@ -72,20 +97,20 @@ const Header=()=>
                    
                    <div  id="list relative ">
                     
-                    {userinfo!==null &&  <ul className={`gap-3 text-md sm:text-lg font-bold flex-col  ${hamburger?'hidden':'flex absolute  max-w-[600px] right-[1.25rem] top-[70px] p-5 '} sm:flex-row sm:flex sm:bg-transparent sm:border-none sm:left-0 sm:top-0 sm:p-0 sm:static`} >
+                    {userinfo!==null && <ul className={`gap-3 text-md sm:text-lg font-bold flex-col  ${hamburger?'hidden':'flex absolute  max-w-[600px] right-[1.25rem] top-[70px] p-5 '} sm:flex-row sm:flex sm:bg-transparent sm:border-none sm:left-0 sm:top-0 sm:p-0 sm:static`} >
                      <NavLink to="/"> <li className={`hover:text-red-400 p-[6px] rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }>Home</li></NavLink>
                             <NavLink to="/restro" > <li className={`hover:text-red-400  p-[6px]  rounded-md  bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` } >FoodAdda</li></NavLink>
                              <NavLink to="/about"> <li className={`hover:text-red-400  p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }  >About Me</li></NavLink>
                              <NavLink to="/cart"> <li className={`hover:text-red-400 p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` }  >Cart<span className="text-sm text-violet-600"> ({totalquanity})</span></li></NavLink>
-                             <NavLink to="/formx"> <li className={`hover:text-red-400 p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent` } onClick={dispatch(removeuser())}>{userinfo!==null ? "Sign Out":"" }</li></NavLink>
+                             <NavLink to="/formx"> <li className={`hover:text-red-400 p-[6px]  rounded-md bg-slate-500 ${!hamburger?'bg-slate-800 text-white':'bg-transparent'} sm:bg-transparent`  } onClick={handlesignbutton}>{userinfo===null ? "Sign In":"Sign Out" }</li></NavLink>
                            
                      </ul>}
                 
                     </div>
-                    <div className="flex justify-center items-center sm:hidden w-[40px] aspect-square bg-gray-400 rounded-full hover:bg-red-500 relative z-10" >
+                   {userinfo !==null &&  <div className="flex justify-center items-center sm:hidden w-[40px] aspect-square bg-gray-400 rounded-full hover:bg-red-500 relative z-10" >
                     {!hamburger?<GiStrikingArrows className="text-4xl absolute top-11 -left-2 rotate-[70deg]" />:""}       
                     {hamburger?<FaHamburger className="text-2xl"  onClick={menubarfn}/>:<FaPersonWalkingArrowRight className="text-2xl"  onClick={menubarfn}/>}
-                    </div>
+                    </div>}
                   
           </div> 
   )
