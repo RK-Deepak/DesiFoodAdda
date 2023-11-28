@@ -179,7 +179,7 @@ visibilepassword=()=>
           return (
                     <div className="flex min-h-screen justify-center items-center flex-col gap-2 my-3 bg_image">
                               
-                              <form onSubmit={submithandler} className="border-l-2 border-t-2 border-slate-600 shadow-md shadow-slate-600 min-h-[350px] max-w-[28rem] w-[90%] p-2 flex flex-col gap-3 bg-gradient-to-r from-slate-500 via-gray-500 to-white h-64" noValidate>
+                              <form onSubmit={submithandler} className="border-l-2 border-t-2 border-slate-600 shadow-md shadow-slate-600 min-h-[350px] max-w-[28rem] w-[90%] p-2 flex flex-col gap-3 bg-gradient-to-r from-slate-500 via-gray-500 to-white " noValidate>
                               <h1 className="font-bold text-2xl text-center underline text-black">{isLogin?"Login":"Sign Up"}</h1>
                          
                              {!isLogin? <div className="flex flex-col gap-1">
