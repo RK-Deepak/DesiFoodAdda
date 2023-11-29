@@ -5,10 +5,12 @@ import logomain from "../assets/logomain.png"
 import { FaClock, FaUserClock } from 'react-icons/fa';
 function RestroInfo(props) {
 
-          console.log(props);
+         
 
           const {name,avgRating,city,areaName,costForTwoMessage,cuisines,totalRatingsString,cloudinaryImageId,
           sla}=props.restrodetail;
+
+          
 
 
           
@@ -20,6 +22,7 @@ function RestroInfo(props) {
           <h2 className='font-bold text-lg sm:text-2xl text-red-500 underline'>{name}</h2>
           <p className='font-semibold text-sm sm:text-md text-slate-400'>{city},{areaName}</p>
           </div>
+          
           <div className='flex gap-1 flex-col items-center sm:items-start' >
             <div className='flex  gap-1 items-center justify-center'>
               <p className='flex gap-1 items-center font-bold text-slate-800 text-xs sm:text-sm'><FaUserClock/>{sla?.deliveryTime} min,</p>
@@ -41,6 +44,7 @@ function RestroInfo(props) {
 
     </div>
   ):<RestroMenuShimmer/>
+  
 }
 
 export default RestroInfo

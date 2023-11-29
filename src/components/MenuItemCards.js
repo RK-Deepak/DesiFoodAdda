@@ -16,10 +16,10 @@ function MenuItemCards({itemCards}) {
   }
   const deleteitem=(id)=>
   {
-          console.log(id);
+        
           dispatch(removeitem(id))
   }
-console.log("data",data);
+
 
 const findquantity=(data,itemCard)=>
 {

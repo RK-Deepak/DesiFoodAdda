@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import MenuItemCards from './MenuItemCards';
 
 function MenuAcordium({foodtype,showitems,setshowindex}) {
-          console.log(foodtype)
+        
 
           const {title,itemCards}=foodtype?.card?.card;
 

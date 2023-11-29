@@ -2,8 +2,6 @@ import React from 'react'
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import minephoto from "../assets/mine.jpeg"
 import logomain from "../assets/logomain.png"
-import { useEffect } from 'react';
-import { useContext } from 'react';
 
 
 const About=()=>

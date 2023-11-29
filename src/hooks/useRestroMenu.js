@@ -24,7 +24,7 @@ const useRestroMenu=(resId)=>
                
 
 
-               console.log(data);
+            
              
                setrestrodetail(data?.data?.cards[0]?.card?.card?.info);
 
@@ -32,10 +32,10 @@ const useRestroMenu=(resId)=>
 
               
                const finalcategory=intitalCategory.filter((category)=>category?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-               console.log("restro",finalcategory)
+               
                setcategory(finalcategory);
 
-               console.log(data?.data?.cards[0]?.card?.card?.info);
+              
             
           }
 

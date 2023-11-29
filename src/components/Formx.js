@@ -24,19 +24,13 @@ const Formx=()=>
 
           })
           const [isLogin,setLogin]=useState(true);
-
           const [showpassword,setshowpassword]=useState(false);
-
           const [errormessage,seterrormessage]=useState("");
-
           const navigate=useNavigate();
           const dispatch=useDispatch();
 
           
-
-
-
-          function changeHandler(e)
+         function changeHandler(e)
           {
              const {name,type,checked,value}=e.target;
 
@@ -49,22 +43,16 @@ const Formx=()=>
                   
            ))
                 
-                  
-}
+    }
 
- 
-function submithandler(e)
+ function submithandler(e)
 {
 
         
           e.preventDefault();
-
-          const value=formvalid(formadata.email,formadata.password,isLogin?null:formadata.cpassword);
-
-         seterrormessage(value);
-          
-         
-            if(value===null)
+        const value=formvalid(formadata.email,formadata.password,isLogin?null:formadata.cpassword);
+        seterrormessage(value);
+          if(value===null)
             {
               if(!isLogin)
               {
@@ -72,20 +60,14 @@ function submithandler(e)
                 .then((userCredential) => {
                   // Signed up 
                   const user = userCredential.user;
-                  console.log("HI",user);
+                 
                   navigate("/");
                   
-            
-                
-                  // ...
-                })
+          })
                 .catch((error) => {
                   const errorCode = error.code;
                   const errorMessage = error.message;
                   seterrormessage(errorCode+" "+errorMessage);
-                  
-                 
-                  // ..
                 });
                  }
                  else //login
@@ -94,31 +76,17 @@ function submithandler(e)
                    .then((userCredential) => {
                    // Signed in 
                    const user = userCredential.user;
-                   console.log("signed in",user);
+                  
                    dispatch(adduser({"usertoken":user.getIdToken,"email":user.email}));
-                   navigate("/body")
-                  
-                   
-
-                 ;
-
-
-              
-                  
-                  
-                  
-     
-      
-     })
+                   navigate("/body");
+})
      .catch((error) => {
        const errorCode = error.code;
        const errorMessage = error.message;
        seterrormessage("invalid user",errorCode);
      });
-                 }
-   
-
-                 setTimeout(() => {
+        }
+    setTimeout(() => {
                         if(isLogin && formadata.email!=="")
                         {
                                setformdata({password:"",email:""});
@@ -127,13 +95,9 @@ function submithandler(e)
                         {
                                 setformdata({password:"",email:"",fname:"",cpassword:"",remember:false});   
                         }
-        
-                        
-                  }, 2000);
+       }, 2000);
                           
-                        
-                      
-              }
+  }
 
               {
                 setTimeout(() => {
@@ -141,12 +105,7 @@ function submithandler(e)
                        
                 }, 2000);
            }
-       
-
-
-
-
-}
+  }
 
 function loginchanger()
 {
@@ -160,23 +119,13 @@ function loginchanger()
         }
           setLogin((prev)=>!prev)
         
-             
-
-                
-      
 }
 
 visibilepassword=()=>
 {
         setshowpassword((prev)=>!prev);
 }
-
-
-
-
-
-          
-          return (
+return (
                     <div className="flex min-h-screen justify-center items-center flex-col gap-2 my-3 bg_image">
                               
                               <form onSubmit={submithandler} className="border-l-2 border-t-2 border-slate-600 shadow-md shadow-slate-600 min-h-[350px] max-w-[28rem] w-[90%] p-2 flex flex-col gap-3 bg-gradient-to-r from-slate-500 via-gray-500 to-white " noValidate>

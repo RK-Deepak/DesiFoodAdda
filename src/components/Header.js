@@ -67,7 +67,7 @@ const Header=()=>
         }, []);
         
   
-                 console.log("carts item--",cartitem);
+              
 
                  let totalquanity=cartitem.reduce((acc,curr)=>
                  {

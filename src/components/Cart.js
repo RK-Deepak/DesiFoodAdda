@@ -4,16 +4,12 @@ import { NavLink } from "react-router-dom";
 
 import { clearcart, removeitem } from "../utils/Redux/Slices/CartSlice";
 import logomain from "../assets/logomain.png";
-import pikaimage from "../assets/pika.gif" // Import the logomain image
-
+import pikaimage from "../assets/pika.gif" 
 
 const Cart = () => {
   const cartdata = useSelector((store) => store.cart.items);
- 
   const dispatch = useDispatch();
-
-
-
+  
   const emptycart = () => {
     dispatch(clearcart());
   };
