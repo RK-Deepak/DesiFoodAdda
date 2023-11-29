@@ -50,7 +50,7 @@ const findquantity=(data,itemCard)=>
              <div className='flex gap-1 flex-col  items-center sm:items-start'>
      <p className='font-bold text-md sm:text-lg underline '>{itemCard?.card?.info?.name}</p>
     <p className='max-w-[80%] fomt-semibold  text-xs sm:text-sm text-slate-700'>{itemCard?.card?.info?.description?itemCard?.card?.info?.description:"This is one of the delicious dish u can have ever had in life.."}</p>
-     <p className='font-bold text-sm text-green-400 underline'>Cost/Item ₹{itemCard?.card?.info?.price/100}</p>
+     <p className='font-bold text-sm text-green-400 underline'>Cost/Item ₹{itemCard?.card?.info?.price?itemCard?.card?.info?.price/100:"256"}</p>
       </div>
       <div className='relative'>
         {itemCard?.card?.info?.imageId?<img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+itemCard?.card?.info?.imageId} className='max-w-[120px] max-h-[120px] rounded-md'/ >:<img src={logomain} alt='logo' className='max-w-[120px] max-h-[120px]'/>}

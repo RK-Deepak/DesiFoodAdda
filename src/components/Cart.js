@@ -24,7 +24,7 @@ const Cart = () => {
           dispatch(removeitem(id))
   }
   const netamount = cartdata.reduce((acc, itemCard) => {
-    return acc + (itemCard?.card?.info?.price / 100)*itemCard.quantity;
+    return acc + (itemCard?.card?.info?.price?itemCard?.card?.info?.price/ 100:256)*itemCard.quantity;
   }, 0);
   console.log(cartdata);
 
@@ -51,7 +51,7 @@ const Cart = () => {
                 <p className='max-w-[80%] font-semibold text-xs sm:text-sm text-slate-700'>
                   {itemCard?.card?.info?.description || "This is one of the delicious dishes you can ever have in life.."}
                 </p>
-                <p className='font-bold text-sm text-green-400 underline'>Cost/Item ₹{itemCard?.card?.info?.price / 100}</p>
+                <p className='font-bold text-sm text-green-400 underline'>Cost/Item ₹{itemCard?.card?.info?.price? itemCard?.card?.info?.price / 100:"256"}</p>
               </div>
               <div className='relative'>
                 {itemCard?.card?.info?.imageId ? (
